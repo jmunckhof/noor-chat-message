@@ -1,0 +1,25 @@
+name: "Noor Chat Message"
+description: "Send a chat message to a thread in Noor"
+inputs:
+  api-key:
+    description: Noor API Token
+    required: true
+  thread-name:
+    description: Name of the thread
+    required: true
+  space-id:
+    description: Id of the space
+    required: true
+  text:
+    description: Message to send
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Send Chat Message
+      shell: bash
+      run: |
+        curl -G https://sun.noor.to/api/v0/sendMessage?spaceId=${{inputs.space-id}} \
+        --data-urlencode "thread=${{inputs.thread-name}}" \
+        --data-urlencode "text=${{inputs.text}}" \
+        --header 'Authorization: Bearer ${{inputs.api-key}}'
