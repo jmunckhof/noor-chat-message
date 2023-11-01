@@ -1,6 +1,6 @@
 # noor-chat-message
 
-Action send chat messages to a thread in Noor
+Action send chat messages to a thread in [Noor](https://noor.to)
 
 ```
 - name: Send Chat Message
